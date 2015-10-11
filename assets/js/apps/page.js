@@ -37,7 +37,7 @@ define([
 
 		function open_readme(e){
 
-			var url = ['readme#', type, this.title ].join('/');
+			var url = ['readme.htm#', type, this.title ].join('/');
 
 			modal('open');
 			modal('render', $('<iframe />').attr({ src :url }) );
