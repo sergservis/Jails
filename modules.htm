@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+	<title>Jails.org - Modules</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/paper/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="//cdn.rawgit.com/Javiani/Litemodal/master/css/litemodal.min.css" type="text/css" />
+	<link rel="stylesheet" href="assets/css/app.css" type="text/css" />
+
+	<script type="text/javascript">
+	var global = { page : 'apps/page' };
+	</script>
+
+	<script type="text/javascript" data-main="assets/js/config" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js" async></script>
+
+</head>
+
+<body data-app="page" data-type="modules" class="loading">
+
+	<main>
+
+		<header class="container-fluid">
+			<div class="row">
+				<div class="col-md-3">
+					<figure class="element modules">
+						<div class="p-element" data-component="view">
+							<p class="p-number" data-value="count">-</p>
+							<p class="p-title">Mo</p>
+							<p class="p-name">Module</p>
+							<p class="p-description">Ousider &amp; Generic</p>
+						</div>
+					</figure>
+				</div>
+				<div class="col-md-5">
+
+					<!--@autopost({ target:'input[type=text]', event :'keyup' })
+					@submitter({ emit :'search', params :true })-->
+					<form action="#" class="search" data-component="submitter,autopost">
+						<div class="input-group">
+							<div class="input-group-addon">modules/</div>
+							<div class="has-warning">
+								<input type="text" name="q" class="form-control" placeholder="Search your modules..." autocomplete="off" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-4">
+					<nav class="nav">
+						<ul class="list-inline">
+							<li><a href="//github.com/jails-org"><img src="assets/images/github.png" />Jails.org</a></li>
+							<li><span class="text-success glyphicon glyphicon-th"></span> / <a href="index.htm">Components</a></li>
+							<li><span class="text-danger glyphicon glyphicon-th-large"></span> / <a href="modules.htm">Modules</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<section class="body container-fluid">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+
+					<section data-component="view">
+
+						<ul data-each="items" class="list-unstyled">
+							<li class="panel panel-default">
+								<div class="panel-body">
+
+									<div class="row">
+
+										<div class="col-md-7">
+
+											<h4>
+												<span data-value="section"></span> /
+												<a href="//github.com/jails-org/Modules/tree/jquery/zepto/{{name}}" target="_blank" class="text-default readme" title="{{name}}" data-value="name">Modules</a>
+											</h4>
+											<hr />
+
+											<div class="data">
+
+												<p>
+													<span class="label label-warning">usage</span> :
+													comps/{{name}}/{{name}}
+												</p>
+
+												<p data-if="sample">
+													<span class="label label-info">demo&nbsp;</span> :
+													<a href="//rawgit.com/jails-org/Modules/jquery/zepto/{{name}}/sample/index.htm" target="_blank">
+														Jails.org/Modules/{{name}}
+													</a>
+												</p>
+
+												<p>
+													<span class="label label-primary">github</span> :
+													<a href="//github.com/jails-org/Modules/tree/jquery/zepto/{{name}}" target="_blank">
+														Jails.org/Modules/{{name}}
+													</a>
+												</p>
+
+											</div>
+										</div>
+
+										<div class="col-md-5 description">
+											<p>{{description}}</p>
+										</div>
+
+									</div>
+
+								</div>
+
+							</li>
+						</ul>
+
+					</section>
+
+				</div>
+			</div>
+		</section>
+
+		<section class="container-fluid" data-component="view" data-cloak>
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="alert alert-dismissible alert-warning" data-not="items">
+						<strong>No results ...</strong>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--@litemodal({ open: 'show' })-->
+		<section class="litemodal" data-component="litemodal">
+			<div class="m-body"></div>
+		</section>
+
+	</main>
+
+</body>
+
+</html>
