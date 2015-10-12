@@ -9,13 +9,14 @@ define([
 		var data;
 
 		this.schema = { items :Object };
+		this.branch = 'jquery/zepto';
 
-		this.request = function( type ){
-			return $.get('//rawgit.com/jails-org/'+type+'/jquery/zepto/'+type+'.json').done( save );
+		this.request = function( type, branch ){
+			return $.get('//rawgit.com/jails-org/'+type+'/'+this.branch+'/'+type+'.json').done( save );
 		};
 
-		this.readme = function( type, name ){
-			return $.get('//rawgit.com/jails-org/'+type+'/jquery/zepto/'+name+'/README.md')
+		this.readme = function( type, name, branch ){
+			return $.get('//rawgit.com/jails-org/'+type+'/'+this.branch+'/'+name+'/README.md')
 		};
 
 		function save( response ){

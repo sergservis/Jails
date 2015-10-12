@@ -20,12 +20,15 @@ define([
 			app		= this,
 			html	= $(html),
 			type 	= html.data('type'),
+			branch  = querystring('branch') || 'jquery/zepto',
 			view 	= this.x('[data-component*=view]'),
 			modal 	= this.x('[data-component*=modal]');
 
 		this.init = function(){
 
+			github.branch = branch;
 			github.request( type ).done( render, complete, page_load );
+			html.find('.lnk').each(set_links);
 
 			this.listen('submitter:search', search);
 			this.watch( '.readme', 'click', open_readme );
@@ -59,6 +62,17 @@ define([
 
 		function complete(){
 			html.addClass('complete').removeClass('loading');
+		}
+
+		function querystring(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+
+		function set_links(){
+			$(this).attr('href', this.href +'?branch=' + branch);
 		}
 	});
 });
