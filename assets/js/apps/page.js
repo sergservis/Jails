@@ -4,8 +4,8 @@ define([
 	'models/github',
 	'mods/routr/routr',
 
-	'comps/view/view',
-	'comps/submitter/submitter',
+	'../../../../Components/view/view',
+	'../../../../Components/submitter/submitter',
 	'comps/autopost/autopost',
 	'comps/litemodal/litemodal'
 
@@ -18,23 +18,18 @@ define([
 
 		var
 			app		= this,
-			html	= $(html),
-			type 	= html.data('type'),
+			type 	= html.getAttribute('data-type'),
 			view 	= this.x('[data-component*=view]'),
 			modal 	= this.x('[data-component*=modal]');
 
 		this.init = function(){
 
-			github.request( type ).done( render, complete, page_load );
-			html.find('.lnk').each(set_links);
+			github.request( type ).done( render, complete );
 
 			this.listen('submitter:search', search);
-			this.watch( '.readme', 'click', open_readme );
-		};
+			this.on( 'click', '.readme', open_readme );
 
-		function page_load(q){
-			routr().get('/:name', page_load_search).run();
-		}
+		};
 
 		function open_readme(e){
 
@@ -54,16 +49,9 @@ define([
 			render( github.find( post.params.q ) );
 		}
 
-		function page_load_search(q){
-			 render( github.find( q ) );
-		}
-
 		function complete(){
-			html.addClass('complete').removeClass('loading');
+			html.className = html.className.replace('loading', '') + ' complete';
 		}
 
-		function set_links(){
-			$(this).attr('href', this.href +'?branch=' + github.branch);
-		}
 	});
 });

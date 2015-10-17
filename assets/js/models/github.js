@@ -1,31 +1,27 @@
-define([
+define(function(){
 
-	'mods/model/model'
+	var data, Model;
 
-], function( Model ){
+	return Model = {
 
-	return Model('github', function(){
+		schema :{ items :Object },
+		branch :querystring('branch') || 'master',
 
-		var data, _self = this;
+		request :function( type ){
+			return $.get('//rawgit.com/jails-org/'+type+'/'+this.branch+'/'+type+'.json').done( this.save );
+		},
 
-		this.schema = { items :Object };
-		this.branch = querystring('branch') || 'jquery/zepto';
+		readme :function( type, name ){
+			return $.get('//rawgit.com/jails-org/'+type+'/'+this.branch+'/'+name+'/README.md');
+		},
 
-		this.request = function( type ){
-			return $.get('//rawgit.com/jails-org/'+type+'/'+this.branch+'/'+type+'.json').done( save );
-		};
-
-		this.readme = function( type, name ){
-			return $.get('//rawgit.com/jails-org/'+type+'/'+this.branch+'/'+name+'/README.md')
-		};
-
-		function save( response ){
+		save :function( response ){
 			data = response;
 			data.count = response.items.length;
-			data.branch = _self.branch;
-		}
+			data.branch = Model.branch;
+		},
 
-		this.find = function( q ){
+		find :function(q){
 
 			var items = $.map( data.items, function( item ){
 				var string = [ item.name, item.authors.toString(), item.description, item.section ].join('#');
@@ -33,13 +29,13 @@ define([
 			});
 
 			return { items :items, count :items.length };
-		};
-
-		function querystring(name) {
-			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-			results = regex.exec(location.search);
-			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 		}
-	});
+	};
+
+	function querystring(name) {
+		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
 });
