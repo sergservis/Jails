@@ -4,7 +4,7 @@ require.config({
 	deps    :['jquery', 'jails', 'mods/jquery.adapter/jquery.adapter', global.page],
 
 	paths   :{
-		jails		:'//cdn.rawgit.com/jails-org/Jails/master/source/jails.min',
+		jails		:'//rawgit.com/jails-org/Jails/master/source/jails.min',
 		mods		:'//cdn.rawgit.com/jails-org/Modules/master',
 		comps		:'//cdn.rawgit.com/jails-org/Components/master',
 		jquery 		:'//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min',
