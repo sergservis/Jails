@@ -4,8 +4,8 @@ define([
 	'models/github',
 	'mods/routr/routr',
 
-	'../../../../Components/view/view',
-	'../../../../Components/submitter/submitter',
+	'comps/view/view',
+	'comps/submitter/submitter',
 	'comps/autopost/autopost',
 	'comps/litemodal/litemodal'
 
