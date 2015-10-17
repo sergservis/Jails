@@ -28,7 +28,6 @@ define([
 
 			this.listen('submitter:search', search);
 			this.on( 'click', '.readme', open_readme );
-
 		};
 
 		function open_readme(e){
@@ -36,7 +35,7 @@ define([
 			var url = ['readme.htm?branch='+github.branch+'#', type, this.title ].join('/');
 
 			modal('open');
-			modal('render', $('<iframe />').attr({ src :url }) );
+			modal('render', { url: url } );
 
 			e.preventDefault();
 		}
