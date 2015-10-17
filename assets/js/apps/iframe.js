@@ -10,7 +10,7 @@ define([
 
 	return jails.app('iframe', function( body, data ){
 
-		var app  = this, body = $(body);
+		var app  = this;
 
 		this.init = function(){
 
@@ -25,8 +25,8 @@ define([
 		}
 
 		function render( html ){
-			body.html( html );
-			body.removeClass('loading');
+			body.innerHTML = html;
+			body.className = body.className.replace('loading', '');
 		}
 
 		function filter( text ){
