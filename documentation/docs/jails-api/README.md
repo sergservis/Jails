@@ -1,11 +1,11 @@
 # Jails API
 <!--{h1:.massive-header.-with-tagline}-->
 
-> Public Methods
+> Public Attributes & Methods
 
-You will eventually need to access some of the **Jails Public Methods** in order to build some kind of Component, or a Generic Module which needs to be integrated to the ecosystem somehow.
+You will eventually need to access some of the **Jails Public Attributes & Methods** in order to build some kind of Component, or a Generic Module which needs to be integrated to the ecosystem somehow.
 
-These are the public methods you can use:
+These are the public methods/attributes you can use:
 
 ## .apps, .controllers, .components
 
@@ -23,7 +23,7 @@ Start Jails ecosystem.
 Jails will scan again looking for `Components`, `Applications`, `Controllers` inside some `NodeElement` target.
 Very useful when you create dynamically an ecosystem jails module.
 
-## .data
+## .data()
 Gets the **Shared Object** of the `Controllers` & `Apps`.
 
 ## .publish(), .subscribe()
