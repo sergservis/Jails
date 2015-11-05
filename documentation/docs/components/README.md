@@ -50,7 +50,7 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
 
 ## Mixin declaration
 
-Easy to understand, automatic initialize, definitions always on top, gets
+Easy to understand, automatic initialize, definitions always on top.
 
 ```js
 define(['jails'], function( jails ){
