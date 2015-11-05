@@ -221,9 +221,9 @@
             "id": ".refresh(-nodeelement-)"
           },
           {
-            "title": ".data",
+            "title": ".data()",
             "depth": 2,
-            "id": ".data"
+            "id": ".data()"
           },
           {
             "title": ".publish(), .subscribe()",
@@ -424,9 +424,9 @@
           "id": ".refresh(-nodeelement-)"
         },
         {
-          "title": ".data",
+          "title": ".data()",
           "depth": 2,
-          "id": ".data"
+          "id": ".data()"
         },
         {
           "title": ".publish(), .subscribe()",

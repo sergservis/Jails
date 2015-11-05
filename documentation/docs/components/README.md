@@ -55,7 +55,7 @@ Easy to understand, automatic initialize, definitions always on top, gets
 ```js
 define(['jails'], function( jails ){
 
-    jails.component('my-component', function(html, annotation){
+    return jails.component('my-component', function(html, annotation){
 
         this.init = function(){
             console.log('hey!! I am here!!!');

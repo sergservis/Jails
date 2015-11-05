@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
     <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="../assets/script.js?t=74596582"></script>
+    <script src="../assets/script.js?t=74596582"></script>
     <script src="../assets/script.js?t=74596582"></script>
     <title>Apps &amp; Controllers</title>
     <meta name="viewport" content="width=device-width">
@@ -40,7 +44,7 @@
 <h3 id="app-declaration">App declaration</h3>
 <pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
 
-    jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+    <span class="pl-k">return</span> jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
         <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
             <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
@@ -51,7 +55,7 @@
 <h3 id="controller-declaration">Controller declaration</h3>
 <pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
 
-    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+    <span class="pl-k">return</span> jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
         <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
             <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
@@ -63,7 +67,7 @@
 <p>You can use either the <strong>passive</strong> way to interact by using the <strong>listen</strong> method, and the <strong>active</strong> way by executing a <strong>public</strong> method of a component. You can always execute a <strong>public</strong> method of a component from a controller, because all the components are initialized before any controllers and apps.</p>
 <pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
 
-    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+    <span class="pl-k">return</span> jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
         <span class="pl-c">//Gets the reference of a component</span>
         <span class="pl-k">var</span> my_component = <span class="pl-k">this</span>.x(<span class="pl-s">&apos;[data-component*=my-component]&apos;</span>);

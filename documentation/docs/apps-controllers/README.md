@@ -31,7 +31,7 @@ Pretty much the same thing as components, some names changes, and the **data** s
 ```js
 define(['jails'], function( jails ){
 
-    jails.app('my-app', function(html, data){
+    return jails.app('my-app', function(html, data){
 
         this.init = function(){
             console.log('hey!! I am an app!!!', data);
@@ -45,7 +45,7 @@ define(['jails'], function( jails ){
 ```js
 define(['jails'], function( jails ){
 
-    jails.controller('my-controller', function(html, data){
+    return jails.controller('my-controller', function(html, data){
 
         this.init = function(){
             console.log('hey!! I am an app!!!', data);
@@ -61,7 +61,7 @@ You can use either the **passive** way to interact by using the **listen** metho
 ```js
 define(['jails'], function( jails ){
 
-    jails.controller('my-controller', function(html, data){
+    return jails.controller('my-controller', function(html, data){
 
         //Gets the reference of a component
         var my_component = this.x('[data-component*=my-component]');

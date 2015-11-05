@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
     <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="../assets/script.js?t=74596582"></script>
+    <script src="../assets/script.js?t=74596582"></script>
     <script src="../assets/script.js?t=74596582"></script>
     <title>Components</title>
     <meta name="viewport" content="width=device-width">
@@ -56,7 +60,7 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
 <p>Easy to understand, automatic initialize, definitions always on top, gets</p>
 <pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
 
-    jails.component(<span class="pl-s">&apos;my-component&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, annotation</span>)</span>{
+    <span class="pl-k">return</span> jails.component(<span class="pl-s">&apos;my-component&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, annotation</span>)</span>{
 
         <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
             <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am here!!!&apos;</span>);
