@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="../assets/script.js?t=74596582"></script>
+    <title>Command Line</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-command-line">
+        <div class="header-nav">
+          <div class="right"><a href="https://github.com/jails-org" data-title="jails-org" class="iconlink">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 class="massive-header -with-tagline" id="jails-cli">Jails CLI</h1>
+<blockquote>
+<p>Command-line</p>
+</blockquote>
+<ul>
+<li>Scaffold Jails modules easily</li>
+<li>Build your apps</li>
+<li>Watch files</li>
+</ul>
+<h2 id="installing">Installing</h2>
+<pre><code>sudo npm i jails-cli -g
+</code></pre>
+<p>That&#x2019;s it&#x2026; Now you&#x2019;re able to run <code>jails</code> command. To uninstall just use the same command above but using uninstall npm command.</p>
+<h2 id="scaffolding">Scaffolding</h2>
+<ul>
+<li>Apps</li>
+<li>Components</li>
+<li>Controllers</li>
+<li>Config file</li>
+</ul>
+<pre><code>jails new app my-app
+</code></pre>
+<p>That command above will create an app on your <code>apps</code> folder named <strong>my-app</strong>. It will generate the following snippet:</p>
+<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+
+    jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+
+        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+
+        };
+    })
+});
+</code></pre>
+<p>You can save that module in a specific folder:</p>
+<pre><code>jails new controller product/box
+</code></pre>
+<p><em>Saving at: ** assets/js/controllers/product/box.js</em>* *</p>
+<p>The options available are : <code>app</code>, <code>component</code>, <code>controller</code>, <code>config</code>.</p>
+<h2 id="building-your-project">Building your Project</h2>
+<p>Jails uses RequireJs in order to make all AMD modules working.
+You can choose to build an app page and generate a single js minified file with all the modules within.</p>
+<ul>
+<li>You need to change your config file and <strong>include</strong> <code>config</code> and <code>requirejs</code> to the compilation step.</li>
+</ul>
+<pre><code class="lang-js"><span class="pl-c1">require</span>.config({
+
+	baseUrl :<span class="pl-s">&apos;assets/js/&apos;</span>,
+	deps    :[<span class="pl-s">&apos;jquery&apos;</span>, <span class="pl-s">&apos;jails&apos;</span>, global.page],
+	include :[<span class="pl-s">&apos;config&apos;</span>, <span class="pl-s">&apos;lib/requirejs&apos;</span>],
+
+    (...)
+</code></pre>
+<ul>
+<li>Then, point your script file to your min js file:</li>
+</ul>
+<pre><code class="lang-html">
+<span class="hljs-tag">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+    <span class="pl-k">var</span> global = {
+        page :<span class="pl-s">&apos;apps/home&apos;</span>
+    };
+</span><span class="hljs-tag">&lt;/<span class="pl-ent">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s">&quot;text/javascript&quot;</span> <span class="pl-e">src</span>=<span class="pl-s">&quot;assets/js/min/home&quot;</span> <span class="pl-e">data-main</span>=<span class="pl-s">&quot;apps/home&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="pl-ent">script</span>&gt;</span>
+
+</code></pre>
+<h2 id="building-commands">Building Commands</h2>
+<p>Jails Cli will create a <strong>min</strong> folder containing all minified/uglified files.</p>
+<h4 id="building-an-specific-app">Building an specific App</h4>
+<pre><code>jails build home
+</code></pre>
+<h4 id="building-all-apps">Building all apps</h4>
+<pre><code>jails build
+</code></pre>
+<h4 id="bypass-uglify-(-for-debugs-)">Bypass uglify ( for debugs )</h4>
+<pre><code>jails build -d
+</code></pre>
+<pre><code>jails build home -d
+</code></pre>
+<h2 id="watching">Watching</h2>
+<p>The watching task is still on developing yet and doesn&#x2019;t let you to use many options for now, but it&#x2019;s quite usefull when you just need to build the application after changing some file.</p>
+<pre><code>jails watch &lt;app&gt;
+</code></pre>
+<p>App should be the application you&#x2019;re working, for now, the watching task will look for any changes on assets/js and descendents and build project. <code>&lt;app&gt;</code> parameter is required, in the future it will have more options.</p>
+<p>For instance, to build the app called <code>home</code> when anything changes:</p>
+<pre><code>jails watch home
+</code></pre>
+<p>To quit watching on terminal just hit <strong><code>ctrl+c</code></strong>.</p>
+<h2 id="help">Help</h2>
+<p>For more information and detailed options:</p>
+<pre><code>jails
+</code></pre>
+<pre><code>jails -h
+</code></pre>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../modules/index.html"><span class="title">Modules</span></a></div>
+          <div class="right"><a href="../jails-api/index.html"><span class="label">Next: </span><span class="title">Jails API</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="../index.html" class="link title  link-index">Jails</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../getting-started/index.html" class="link title  link-getting-started">Quick Starting</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../components/index.html" class="link title  link-components">Components</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../apps-controllers/index.html" class="link title  link-apps-controllers">Apps &amp; Controllers</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../modules/index.html" class="link title  link-modules">Modules</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../command-line/index.html" class="link title -active link-command-line">Command Line</a>
+              <ul class="headings heading-list">
+                <li class="heading-item -depth-2"><a href="#installing" class="hlink link-installing">Installing</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#scaffolding" class="hlink link-scaffolding">Scaffolding</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#building-your-project" class="hlink link-building-your-project">Building your Project</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#building-commands" class="hlink link-building-commands">Building Commands</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#watching" class="hlink link-watching">Watching</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#help" class="hlink link-help">Help</a>
+                </li>
+              </ul>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../jails-api/index.html" class="link title  link-jails-api">Jails API</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>

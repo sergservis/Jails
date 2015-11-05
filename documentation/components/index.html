@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="../assets/script.js?t=74596582"></script>
+    <title>Components</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-components">
+        <div class="header-nav">
+          <div class="right"><a href="https://github.com/jails-org" data-title="jails-org" class="iconlink">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 class="massive-header -with-tagline" id="components">Components</h1>
+<blockquote>
+<p>Atoms &amp; Molecules</p>
+</blockquote>
+<ul>
+<li>All the components are initialized before any other Jails modules.</li>
+<li>Components <strong>should know nothing</strong> about any other organisms in the page.</li>
+<li>They <strong>don&#x2019;t make</strong> ajax calls</li>
+<li>Aim only <strong>UI</strong> issues</li>
+<li>They can only communicate with the world by using <code>.emit()</code> interface.</li>
+<li>Use <strong>public methods</strong> when you want to access that later.</li>
+<li>Configurations are welcome whenever is possible</li>
+</ul>
+<p>Please, take a look at some official Jails Components at: <a href="http://jails-org.github.io/Jails/">jails-org.github.io/Jails/modules</a></p>
+<h2 id="markup">Markup</h2>
+<p>Just reference which markup should your mixin be applied. Leave the classes to <code>Css</code>.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> /&gt;</span>
+</code></pre>
+<h2 id="configurations">Configurations</h2>
+<p>Configurations are a good way to give a little dynamic behavior without having to change your <code>js</code> code.
+You can use the <code>data</code> attributes to achieve that.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> <span class="pl-e">data-my-component-target</span>=<span class="pl-s">&quot;.some-element&quot;</span> /&gt;</span>
+</code></pre>
+<h2 id="annotations">Annotations</h2>
+<p><code>data-attribute</code> can be very verbose, you have to prefix your data attribute to do not collide with other components.
+Annotations on html solve that problem, it looks more elegant. Use it if you don&#x2019;t minify your html.</p>
+<pre><code class="lang-html"><span class="pl-c">&lt;!--@my-component({ target:&apos;.some-element&apos; })--&gt;</span>
+<span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> /&gt;</span>
+</code></pre>
+<pre><code class="lang-html"><span class="pl-c">&lt;!--
+@my-component({ target:&apos;.some-element&apos; })
+@other-component({ target:&apos;.some-element&apos; })
+--&gt;</span>
+<span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component, other-component&quot;</span> /&gt;</span>
+</code></pre>
+<h2 id="mixin-declaration">Mixin declaration</h2>
+<p>Easy to understand, automatic initialize, definitions always on top, gets</p>
+<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+
+    jails.component(<span class="pl-s">&apos;my-component&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, annotation</span>)</span>{
+
+        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am here!!!&apos;</span>);
+        };
+    });
+});
+</code></pre>
+<h2 id="api">Api</h2>
+<h4 id=".on(-event-function-)">.on( Event, Function )</h4>
+<p>Bind DOM events on the component itself.</p>
+<h4 id=".on(-event-cssselector-function-)">.on( Event, CssSelector, Function )</h4>
+<p>Bind DOM events on component child nodes.</p>
+<h4 id=".off(-event-function-)">.off( Event, [Function] )</h4>
+<p>Unbind events.</p>
+<h4 id=".trigger(-element-event-args-)">.trigger( element, event, [args] )</h4>
+<p>Trigger events on some element. Element is required&#x2026;</p>
+<h4 id=".emit(-action-data-)">.emit( action, [ data ] )</h4>
+<p>Emit an custom event to the ecosystem.</p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../getting-started/index.html"><span class="title">Quick Starting</span></a></div>
+          <div class="right"><a href="../apps-controllers/index.html"><span class="label">Next: </span><span class="title">Apps &amp; Controllers</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="../index.html" class="link title  link-index">Jails</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../getting-started/index.html" class="link title  link-getting-started">Quick Starting</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../components/index.html" class="link title -active link-components">Components</a>
+              <ul class="headings heading-list">
+                <li class="heading-item -depth-2"><a href="#markup" class="hlink link-markup">Markup</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#configurations" class="hlink link-configurations">Configurations</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#annotations" class="hlink link-annotations">Annotations</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#mixin-declaration" class="hlink link-mixin-declaration">Mixin declaration</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#api" class="hlink link-api">Api</a>
+                </li>
+              </ul>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../apps-controllers/index.html" class="link title  link-apps-controllers">Apps &amp; Controllers</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../modules/index.html" class="link title  link-modules">Modules</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../command-line/index.html" class="link title  link-command-line">Command Line</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../jails-api/index.html" class="link title  link-jails-api">Jails API</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>

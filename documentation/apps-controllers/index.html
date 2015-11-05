@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="../assets/script.js?t=74596582"></script>
+    <title>Apps &amp; Controllers</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-apps-controllers">
+        <div class="header-nav">
+          <div class="right"><a href="https://github.com/jails-org" data-title="jails-org" class="iconlink">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 class="massive-header -with-tagline" id="apps-and-controllers">Apps &amp; Controllers</h1>
+<blockquote>
+<p>Pages &amp; Organisms</p>
+</blockquote>
+<ul>
+<li><strong>Controllers &amp; Apps</strong> are the same thing.</li>
+<li>They inherit all <strong>Components</strong> behavior.</li>
+<li>You should have only 1 App to deal with your page.</li>
+<li>You can have several controllers on a page.</li>
+<li>They <strong>listen</strong>, <strong>execute</strong> and relate the components with each other.</li>
+<li>Can make ajax calls or request data by consuming any <strong>AMD modules</strong> like <strong>Models</strong> and <strong>Stores</strong>.</li>
+</ul>
+<h2 id="markup">Markup</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">body</span> <span class="pl-e">data-app</span>=<span class="pl-s">&quot;my-app&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-controller</span>=<span class="pl-s">&quot;my-controller&quot;</span> /&gt;</span>
+</code></pre>
+<h2 id="shared-data">Shared Data</h2>
+<p>Controllers and Apps do not have the <code>@annotations</code> like components does, they share an global object, it can be used to share some data, some information, states etc. It&#x2019;s the simplest way to share data through controllers and your application.</p>
+<h2 id="mixin-declaration">Mixin declaration</h2>
+<p>Pretty much the same thing as components, some names changes, and the <strong>data</strong> shared object instead of <code>@annotation</code>.</p>
+<h3 id="app-declaration">App declaration</h3>
+<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+
+    jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+
+        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
+        };
+    });
+});
+</code></pre>
+<h3 id="controller-declaration">Controller declaration</h3>
+<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+
+    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+
+        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
+        };
+    });
+});
+</code></pre>
+<h2 id="controlling-components">Controlling Components</h2>
+<p>You can use either the <strong>passive</strong> way to interact by using the <strong>listen</strong> method, and the <strong>active</strong> way by executing a <strong>public</strong> method of a component. You can always execute a <strong>public</strong> method of a component from a controller, because all the components are initialized before any controllers and apps.</p>
+<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+
+    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+
+        <span class="pl-c">//Gets the reference of a component</span>
+        <span class="pl-k">var</span> my_component = <span class="pl-k">this</span>.x(<span class="pl-s">&apos;[data-component*=my-component]&apos;</span>);
+
+        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+
+            <span class="pl-c">//Passive way</span>
+            <span class="pl-k">this</span>.listen(<span class="pl-s">&apos;my-component:action&apos;</span>, doSomething);
+            <span class="pl-c">//Active way</span>
+            my_component(<span class="pl-s">&apos;publicMethod&apos;</span>, { someArgs:[] });
+        };
+
+        <span class="hljs-function"><span class="pl-k">function</span> <span class="pl-ent">doSomething</span>(<span class="hljs-params">e, args</span>)</span>{
+            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;component emits action&apos;</span>, args);
+        }
+    });
+});
+</code></pre>
+<h2 id="api">Api</h2>
+<p>All methods of the components are present in <strong>Controllers</strong> &amp; <strong>Apps</strong>, plus the following methods :</p>
+<h4 id=".listen(-event-function-)">.listen( Event, Function )</h4>
+<p>Listen to custom events fired by <strong>Components</strong> or <strong>Controllers</strong> within the controller/app scope.</p>
+<h4 id=".x(-cssselector-)">.x( CssSelector )</h4>
+<p>Creates an reference to components, and returns a function, it accepts the name of public method and arguments to be sent as event. The previous example code illustrates that.</p>
+<h4 id=".publish(-event-args-)">.publish( Event, [args] )</h4>
+<p>Fires a global event to the ecosystem, very recommended to communicate <strong>Controllers</strong> and <strong>Apps</strong> with each other.</p>
+<h4 id=".subscribe(-event-function-)">.subscribe( Event, Function )</h4>
+<p>Subscribes the Controller/App to a global event.</p>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../components/index.html"><span class="title">Components</span></a></div>
+          <div class="right"><a href="../modules/index.html"><span class="label">Next: </span><span class="title">Modules</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="../index.html" class="link title  link-index">Jails</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../getting-started/index.html" class="link title  link-getting-started">Quick Starting</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../components/index.html" class="link title  link-components">Components</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../apps-controllers/index.html" class="link title -active link-apps-controllers">Apps &amp; Controllers</a>
+              <ul class="headings heading-list">
+                <li class="heading-item -depth-2"><a href="#markup" class="hlink link-markup">Markup</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#shared-data" class="hlink link-shared-data">Shared Data</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#mixin-declaration" class="hlink link-mixin-declaration">Mixin declaration</a>
+                  <ul class="heading-list -depth-2">
+                    <li class="heading-item -depth-3"><a href="#app-declaration" class="hlink link-app-declaration">App declaration</a>
+                    </li>
+                    <li class="heading-item -depth-3"><a href="#controller-declaration" class="hlink link-controller-declaration">Controller declaration</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="heading-item -depth-2"><a href="#controlling-components" class="hlink link-controlling-components">Controlling Components</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#api" class="hlink link-api">Api</a>
+                </li>
+              </ul>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../modules/index.html" class="link title  link-modules">Modules</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../command-line/index.html" class="link title  link-command-line">Command Line</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../jails-api/index.html" class="link title  link-jails-api">Jails API</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>

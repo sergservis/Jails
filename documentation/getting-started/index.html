@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
+    <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
+    <script src="../assets/script.js?t=74596582"></script>
+    <title>Quick Starting</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-getting-started">
+        <div class="header-nav">
+          <div class="right"><a href="https://github.com/jails-org" data-title="jails-org" class="iconlink">
+              <!-- span.title Open in GitHub--><span class="icon -github"></span></a>
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="getting-started">Getting started</h1>
+<h2 id="markup">Markup</h2>
+<p>Set a global variable pointing to your <code>app</code>, and create a <code>config.js</code> file to your entry point.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s">&quot;text/javascript&quot;</span>&gt;</span><span class="actionscript">
+    <span class="pl-k">var</span> global = { page : <span class="pl-s">&apos;apps/hello-world&apos;</span> };
+</span><span class="hljs-tag">&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s">&quot;text/javascript&quot;</span> <span class="pl-e">data-main</span>=<span class="pl-s">&quot;js/config.js&quot;</span> <span class="pl-e">src</span>=<span class="pl-s">&quot;path/to/requirejs&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="pl-ent">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="pl-ent">body</span> <span class="pl-e">data-app</span>=<span class="pl-s">&quot;hello-world&quot;</span> /&gt;</span>
+</code></pre>
+<h2 id="app-hello-world.js">App - hello-world.js</h2>
+<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+
+    jails.app(<span class="pl-s">&apos;hello-world&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+
+        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;Hello World!!! =)&apos;</span>);
+            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;My app is running on =&gt;&apos;</span>, html);
+        };
+    });
+});
+</code></pre>
+<h2 id="setup-your-config-file">Setup your config file</h2>
+<p>Config file sets the paths, dependencies and it loads and executes jails.
+It&#x2019;s the entry point to the RequireJS library, so <code>config.js</code> should explicit say, which app should be executed along jails.</p>
+<pre><code class="lang-js"><span class="pl-c1">require</span>.config({
+	baseUrl :<span class="pl-s">&apos;js/&apos;</span>,
+	deps    :[<span class="pl-s">&apos;jails&apos;</span>, global.page],
+	paths   :{
+		jails		:<span class="pl-s">&apos;//rawgit.com/jails-org/Jails/master/source/jails.min&apos;</span>,
+		mods		:<span class="pl-s">&apos;//rawgit.com/jails-org/Modules/master&apos;</span>,
+		comps		:<span class="pl-s">&apos;//rawgit.com/jails-org/Components/master&apos;</span>
+	},
+	callback :<span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+		jails.start();
+	}
+});
+
+</code></pre>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="../index.html"><span class="title">Jails</span></a></div>
+          <div class="right"><a href="../components/index.html"><span class="label">Next: </span><span class="title">Components</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="../index.html" class="link title  link-index">Jails</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../getting-started/index.html" class="link title -active link-getting-started">Quick Starting</a>
+              <ul class="headings heading-list">
+                <li class="heading-item -depth-2"><a href="#markup" class="hlink link-markup">Markup</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#app-hello-world.js" class="hlink link-app-hello-world.js">App - hello-world.js</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#setup-your-config-file" class="hlink link-setup-your-config-file">Setup your config file</a>
+                </li>
+              </ul>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../components/index.html" class="link title  link-components">Components</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../apps-controllers/index.html" class="link title  link-apps-controllers">Apps &amp; Controllers</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../modules/index.html" class="link title  link-modules">Modules</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../command-line/index.html" class="link title  link-command-line">Command Line</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><a href="../jails-api/index.html" class="link title  link-jails-api">Jails API</a>
+              <ul class="submenu">
+                <li class="menu-item -level-2">
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>
