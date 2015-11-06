@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
-    <link rel="stylesheet" href="../assets/style.css?t=8a41d573">
     <link rel="stylesheet" href="http://ricostacruz.com/docpress-rsc/style.css">
-    <script src="../assets/script.js?t=74596582"></script>
     <script src="../assets/script.js?t=74596582"></script>
     <title>Components</title>
     <meta name="viewport" content="width=device-width">
@@ -26,32 +24,30 @@
 <ul>
 <li>All the components are initialized before any other Jails modules.</li>
 <li>Components <strong>should know nothing</strong> about any other organisms in the page.</li>
-<li>They <strong>don&#x2019;t make</strong> ajax calls</li>
-<li>Aim only <strong>UI</strong> issues</li>
+<li>They <strong>don&#x2019;t make</strong> ajax calls.</li>
+<li>Aim only <strong>UI</strong> issues.</li>
 <li>They can only communicate with the world by using <code>.emit()</code> interface.</li>
-<li>Use <strong>public methods</strong> when you want to access that later.</li>
-<li>Configurations are welcome whenever is possible</li>
+<li>Use <strong>public methods</strong> when you want to access some component behavior.</li>
+<li>Configurations are welcome whenever is possible.</li>
 </ul>
-<p>Please, take a look at some official Jails Components at: <a href="http://jails-org.github.io/Jails/">jails-org.github.io/Jails/modules</a></p>
+<p>Please, take a look at some official Jails Components at: <a href="http://jails-org.github.io/Jails/">jails-org.github.io/Jails/</a></p>
 <h2 id="markup">Markup</h2>
 <p>Just reference which markup should your mixin be applied. Leave the classes to <code>Css</code>.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> /&gt;</span>
 </code></pre>
 <h2 id="configurations">Configurations</h2>
-<p>Configurations are a good way to give a little dynamic behavior without having to change your <code>js</code> code.
+<p>Configuration is a good way to give a little dynamic behavior without having to change your <code>js</code> code.
 You can use the <code>data</code> attributes to achieve that.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> <span class="pl-e">data-my-component-target</span>=<span class="pl-s">&quot;.some-element&quot;</span> /&gt;</span>
 </code></pre>
 <h2 id="annotations">Annotations</h2>
-<p><code>data-attribute</code> can be very verbose, you have to prefix your data attribute to do not collide with other components.
+<p><code>data-attributes</code> can be very verbose, you have to prefix your data attribute to do not collide with other components.
 Annotations on html solve that problem, it looks more elegant. Use it if you don&#x2019;t minify your html.</p>
 <pre><code class="lang-html"><span class="pl-c">&lt;!--@my-component({ target:&apos;.some-element&apos; })--&gt;</span>
 <span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> /&gt;</span>
 </code></pre>
-<pre><code class="lang-html"><span class="pl-c">&lt;!--
-@my-component({ target:&apos;.some-element&apos; })
-@other-component({ target:&apos;.some-element&apos; })
---&gt;</span>
+<pre><code class="lang-html"><span class="pl-c">&lt;!--@my-component({ target:&apos;.some-element&apos; })
+@other-component({ target:&apos;.some-element&apos; })--&gt;</span>
 <span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component, other-component&quot;</span> /&gt;</span>
 </code></pre>
 <h2 id="mixin-declaration">Mixin declaration</h2>
