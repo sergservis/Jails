@@ -7,7 +7,7 @@
 - They inherit all **Components** behavior.
 - You should have only 1 App to deal with your page.
 - You can have several controllers on a page.
-- They **listen**, **execute** and relate the components with each other.
+- They **listen**, **execute** and make the components relationship.
 - Can make ajax calls or request data by consuming any **AMD modules** like **Models** and **Stores**.
 
 

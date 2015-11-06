@@ -5,13 +5,13 @@
 
 - All the components are initialized before any other Jails modules.
 - Components **should know nothing** about any other organisms in the page.
-- They **don't make** ajax calls
-- Aim only **UI** issues
+- They **don't make** ajax calls.
+- Aim only **UI** issues.
 - They can only communicate with the world by using `.emit()` interface.
-- Use **public methods** when you want to access that later.
-- Configurations are welcome whenever is possible
+- Use **public methods** when you want to access some component behavior.
+- Configurations are welcome whenever is possible.
 
-Please, take a look at some official Jails Components at: [jails-org.github.io/Jails/modules](http://jails-org.github.io/Jails/)
+Please, take a look at some official Jails Components at: [jails-org.github.io/Jails/](http://jails-org.github.io/Jails/)
 
 ## Markup
 
@@ -23,7 +23,7 @@ Just reference which markup should your mixin be applied. Leave the classes to `
 
 ## Configurations
 
-Configurations are a good way to give a little dynamic behavior without having to change your `js` code.
+Configuration is a good way to give a little dynamic behavior without having to change your `js` code.
 You can use the `data` attributes to achieve that.
 
 ```html
@@ -32,7 +32,7 @@ You can use the `data` attributes to achieve that.
 
 ## Annotations
 
-`data-attribute` can be very verbose, you have to prefix your data attribute to do not collide with other components.
+`data-attributes` can be very verbose, you have to prefix your data attribute to do not collide with other components.
 Annotations on html solve that problem, it looks more elegant. Use it if you don't minify your html.
 
 ```html
@@ -41,10 +41,8 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
 ```
 
 ```html
-<!--
-@my-component({ target:'.some-element' })
-@other-component({ target:'.some-element' })
--->
+<!--@my-component({ target:'.some-element' })
+@other-component({ target:'.some-element' })-->
 <section data-component="my-component, other-component" />
 ```
 
