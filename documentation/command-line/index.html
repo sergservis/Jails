@@ -59,14 +59,14 @@
 <p>Jails uses RequireJs in order to make all AMD modules working.
 You can choose to build an app page and generate a single js minified file with all the modules within.</p>
 <ul>
-<li>You need to change your config file and <strong>include</strong> <code>config</code> and <code>requirejs</code> to the compilation step.</li>
+<li>You need to change your config file and <strong>include</strong> <code>config</code> to the compilation step.</li>
+<li>Let requirejs to be loaded asynchronously on your script tag on a cdn for caching.</li>
 </ul>
 <pre><code class="lang-js"><span class="pl-c1">require</span>.config({
 
 	baseUrl :<span class="pl-s">&apos;assets/js/&apos;</span>,
 	deps    :[<span class="pl-s">&apos;jquery&apos;</span>, <span class="pl-s">&apos;jails&apos;</span>, global.page],
-	include :[<span class="pl-s">&apos;config&apos;</span>, <span class="pl-s">&apos;lib/requirejs&apos;</span>],
-
+	include :[<span class="pl-s">&apos;config&apos;</span>],
     (...)
 </code></pre>
 <ul>
@@ -79,7 +79,8 @@ You can choose to build an app page and generate a single js minified file with 
     };
 </span><span class="hljs-tag">&lt;/<span class="pl-ent">script</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s">&quot;text/javascript&quot;</span> <span class="pl-e">src</span>=<span class="pl-s">&quot;assets/js/min/home&quot;</span> <span class="pl-e">data-main</span>=<span class="pl-s">&quot;apps/home&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="pl-ent">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s">&quot;text/javascript&quot;</span> <span class="pl-e">data-main</span>=<span class="pl-s">&quot;assets/js/min/home&quot;</span> <span class="pl-e">src</span>=<span class="pl-s">&quot;//cdn.requirejs.etc&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="pl-ent">script</span>&gt;</span>
+
 
 </code></pre>
 <h2 id="building-commands">Building Commands</h2>
