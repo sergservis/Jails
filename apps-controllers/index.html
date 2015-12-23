@@ -26,7 +26,7 @@
 <li>They inherit all <strong>Components</strong> behavior.</li>
 <li>You should have only 1 App to deal with your page.</li>
 <li>You can have several controllers on a page.</li>
-<li>They <strong>listen</strong>, <strong>execute</strong> and make the components relationship.</li>
+<li>They <strong>listen</strong>, <strong>execute</strong> and relate the components with each other.</li>
 <li>Can make ajax calls or request data by consuming any <strong>AMD modules</strong> like <strong>Models</strong> and <strong>Stores</strong>.</li>
 </ul>
 <h2 id="markup">Markup</h2>
@@ -40,7 +40,7 @@
 <h3 id="app-declaration">App declaration</h3>
 <pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
 
-    <span class="pl-k">return</span> jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+    jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
         <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
             <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
@@ -51,7 +51,7 @@
 <h3 id="controller-declaration">Controller declaration</h3>
 <pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
 
-    <span class="pl-k">return</span> jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
         <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
             <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
@@ -63,7 +63,7 @@
 <p>You can use either the <strong>passive</strong> way to interact by using the <strong>listen</strong> method, and the <strong>active</strong> way by executing a <strong>public</strong> method of a component. You can always execute a <strong>public</strong> method of a component from a controller, because all the components are initialized before any controllers and apps.</p>
 <pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
 
-    <span class="pl-k">return</span> jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
         <span class="pl-c">//Gets the reference of a component</span>
         <span class="pl-k">var</span> my_component = <span class="pl-k">this</span>.x(<span class="pl-s">&apos;[data-component*=my-component]&apos;</span>);
