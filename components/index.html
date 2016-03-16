@@ -35,6 +35,9 @@
 <p>Just reference which markup should your mixin be applied. Leave the classes to <code>Css</code>.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> /&gt;</span>
 </code></pre>
+<p>More then one component in the same markup:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-comp1 my-comp2 my-comp3&quot;</span> /&gt;</span>
+</code></pre>
 <h2 id="configurations">Configurations</h2>
 <p>Configurations are a good way to give a little dynamic behavior without having to change your <code>js</code> code.
 You can use the <code>data</code> attributes to achieve that.</p>
@@ -50,7 +53,7 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
 @my-component({ target:&apos;.some-element&apos; })
 @other-component({ target:&apos;.some-element&apos; })
 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component, other-component&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component other-component&quot;</span> /&gt;</span>
 </code></pre>
 <h2 id="mixin-declaration">Mixin declaration</h2>
 <p>Easy to understand, automatic initialize, definitions always on top, gets</p>

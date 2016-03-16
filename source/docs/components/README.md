@@ -21,6 +21,12 @@ Just reference which markup should your mixin be applied. Leave the classes to `
 <section data-component="my-component" />
 ```
 
+More then one component in the same markup:
+
+```html
+<section data-component="my-comp1 my-comp2 my-comp3" />
+```
+
 ## Configurations
 
 Configurations are a good way to give a little dynamic behavior without having to change your `js` code.
@@ -45,7 +51,7 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
 @my-component({ target:'.some-element' })
 @other-component({ target:'.some-element' })
 -->
-<section data-component="my-component, other-component" />
+<section data-component="my-component other-component" />
 ```
 
 ## Mixin declaration
