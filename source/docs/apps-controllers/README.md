@@ -29,28 +29,22 @@ Pretty much the same thing as components, some names changes, and the **data** s
 ### App declaration
 
 ```js
-define(['jails'], function( jails ){
+jails.app('my-app', function(html, data){
 
-    jails.app('my-app', function(html, data){
-
-        this.init = function(){
-            console.log('hey!! I am an app!!!', data);
-        };
-    });
+    this.init = function(){
+        console.log('hey!! I am an app!!!', data);
+    };
 });
 ```
 
 ### Controller declaration
 
 ```js
-define(['jails'], function( jails ){
+jails.controller('my-controller', function(html, data){
 
-    jails.controller('my-controller', function(html, data){
-
-        this.init = function(){
-            console.log('hey!! I am an app!!!', data);
-        };
-    });
+    this.init = function(){
+        console.log('hey!! I am an app!!!', data);
+    };
 });
 ```
 
@@ -59,28 +53,25 @@ define(['jails'], function( jails ){
 You can use either the **passive** way to interact by using the **listen** method, and the **active** way by executing a **public** method of a component. You can always execute a **public** method of a component from a controller, because all the components are initialized before any controllers and apps.
 
 ```js
-define(['jails'], function( jails ){
+jails.controller('my-controller', function(html, data){
 
-    jails.controller('my-controller', function(html, data){
+    //Gets the reference of a component
+    var my_component = this.x('[data-component*=my-component]');
 
-        //Gets the reference of a component
-        var my_component = this.x('[data-component*=my-component]');
+    this.init = function(){
 
-        this.init = function(){
+        //Passive way
+        this.listen('my-component:action', doSomething);
+        //Active way
+        my_component('publicMethod', { someArgs:[] });
+    };
 
-            //Passive way
-            this.listen('my-component:action', doSomething);
-            //Active way
-            my_component('publicMethod', { someArgs:[] });
-        };
-
-        function doSomething(e, args){
-            console.log('component emits action', args);
-        }
-    });
+    function doSomething(e, args){
+        console.log('component emits action', args);
+    }
 });
-```
 
+```
 
 ## Api
 

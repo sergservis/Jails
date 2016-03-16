@@ -28,3 +28,14 @@ Gets the **Shared Object** of the `Controllers` & `Apps`.
 
 ## .publish(), .subscribe()
 The internal Jails Pub/Sub, the same used in `Controllers` & `Apps`.
+
+## .events
+
+This property has `on`, `off` and `trigger` jQuery-like methods for events.
+Use this when you want for some reason to add, remove or trigger an event to a nodeElement which is external to your controller, app or component mixin.
+
+```js
+jails.events.on(document, 'click', function handler(){})
+jails.events.off(document, 'click', handler)
+jails.events.trigger(document, 'click')
+```

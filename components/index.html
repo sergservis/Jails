@@ -30,7 +30,7 @@
 <li>Use <strong>public methods</strong> when you want to access that later.</li>
 <li>Configurations are welcome whenever is possible</li>
 </ul>
-<p>Please, take a look at some official Jails Components at: <a href="http://jails-org.github.io/Jails/components.htm">jails-org.github.io/Jails/components</a></p>
+<p>Please, take a look at some official Jails Components at: <a href="http://jails-org.github.io/Jails/">jails-org.github.io/Jails/modules</a></p>
 <h2 id="markup">Markup</h2>
 <p>Just reference which markup should your mixin be applied. Leave the classes to <code>Css</code>.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="pl-ent">section</span> <span class="pl-e">data-component</span>=<span class="pl-s">&quot;my-component&quot;</span> /&gt;</span>
@@ -54,14 +54,11 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
 </code></pre>
 <h2 id="mixin-declaration">Mixin declaration</h2>
 <p>Easy to understand, automatic initialize, definitions always on top, gets</p>
-<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+<pre><code class="lang-js">jails.component(<span class="pl-s">&apos;my-component&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, annotation</span>)</span>{
 
-    jails.component(<span class="pl-s">&apos;my-component&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, annotation</span>)</span>{
-
-        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am here!!!&apos;</span>);
-        };
-    });
+    <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am here!!!&apos;</span>);
+    };
 });
 </code></pre>
 <h2 id="api">Api</h2>
@@ -118,12 +115,6 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
               </ul>
             </li>
             <li class="menu-item -level-1 -parent"><a href="../modules/index.html" class="link title  link-modules">Modules</a>
-              <ul class="submenu">
-                <li class="menu-item -level-2">
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item -level-1 -parent"><a href="../command-line/index.html" class="link title  link-command-line">Command Line</a>
               <ul class="submenu">
                 <li class="menu-item -level-2">
                 </li>

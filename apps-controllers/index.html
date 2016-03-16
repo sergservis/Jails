@@ -38,49 +38,41 @@
 <h2 id="mixin-declaration">Mixin declaration</h2>
 <p>Pretty much the same thing as components, some names changes, and the <strong>data</strong> shared object instead of <code>@annotation</code>.</p>
 <h3 id="app-declaration">App declaration</h3>
-<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+<pre><code class="lang-js">jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
-    jails.app(<span class="pl-s">&apos;my-app&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
-
-        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
-        };
-    });
+    <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
+    };
 });
 </code></pre>
 <h3 id="controller-declaration">Controller declaration</h3>
-<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+<pre><code class="lang-js">jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
-    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
-
-        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
-        };
-    });
+    <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hey!! I am an app!!!&apos;</span>, data);
+    };
 });
 </code></pre>
 <h2 id="controlling-components">Controlling Components</h2>
 <p>You can use either the <strong>passive</strong> way to interact by using the <strong>listen</strong> method, and the <strong>active</strong> way by executing a <strong>public</strong> method of a component. You can always execute a <strong>public</strong> method of a component from a controller, because all the components are initialized before any controllers and apps.</p>
-<pre><code class="lang-js">define([<span class="pl-s">&apos;jails&apos;</span>], <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"> jails </span>)</span>{
+<pre><code class="lang-js">jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
 
-    jails.controller(<span class="pl-s">&apos;my-controller&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params">html, data</span>)</span>{
+    <span class="pl-c">//Gets the reference of a component</span>
+    <span class="pl-k">var</span> my_component = <span class="pl-k">this</span>.x(<span class="pl-s">&apos;[data-component*=my-component]&apos;</span>);
 
-        <span class="pl-c">//Gets the reference of a component</span>
-        <span class="pl-k">var</span> my_component = <span class="pl-k">this</span>.x(<span class="pl-s">&apos;[data-component*=my-component]&apos;</span>);
+    <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
 
-        <span class="pl-k">this</span>.init = <span class="hljs-function"><span class="pl-k">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="pl-c">//Passive way</span>
+        <span class="pl-k">this</span>.listen(<span class="pl-s">&apos;my-component:action&apos;</span>, doSomething);
+        <span class="pl-c">//Active way</span>
+        my_component(<span class="pl-s">&apos;publicMethod&apos;</span>, { someArgs:[] });
+    };
 
-            <span class="pl-c">//Passive way</span>
-            <span class="pl-k">this</span>.listen(<span class="pl-s">&apos;my-component:action&apos;</span>, doSomething);
-            <span class="pl-c">//Active way</span>
-            my_component(<span class="pl-s">&apos;publicMethod&apos;</span>, { someArgs:[] });
-        };
-
-        <span class="hljs-function"><span class="pl-k">function</span> <span class="pl-ent">doSomething</span>(<span class="hljs-params">e, args</span>)</span>{
-            <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;component emits action&apos;</span>, args);
-        }
-    });
+    <span class="hljs-function"><span class="pl-k">function</span> <span class="pl-ent">doSomething</span>(<span class="hljs-params">e, args</span>)</span>{
+        <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;component emits action&apos;</span>, args);
+    }
 });
+
 </code></pre>
 <h2 id="api">Api</h2>
 <p>All methods of the components are present in <strong>Controllers</strong> &amp; <strong>Apps</strong>, plus the following methods :</p>
@@ -141,12 +133,6 @@
               </ul>
             </li>
             <li class="menu-item -level-1 -parent"><a href="../modules/index.html" class="link title  link-modules">Modules</a>
-              <ul class="submenu">
-                <li class="menu-item -level-2">
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item -level-1 -parent"><a href="../command-line/index.html" class="link title  link-command-line">Command Line</a>
               <ul class="submenu">
                 <li class="menu-item -level-2">
                 </li>

@@ -53,14 +53,11 @@ Annotations on html solve that problem, it looks more elegant. Use it if you don
 Easy to understand, automatic initialize, definitions always on top, gets
 
 ```js
-define(['jails'], function( jails ){
+jails.component('my-component', function(html, annotation){
 
-    jails.component('my-component', function(html, annotation){
-
-        this.init = function(){
-            console.log('hey!! I am here!!!');
-        };
-    });
+    this.init = function(){
+        console.log('hey!! I am here!!!');
+    };
 });
 ```
 

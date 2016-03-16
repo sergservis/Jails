@@ -36,10 +36,17 @@ Very useful when you create dynamically an ecosystem jails module.</p>
 <p>Gets the <strong>Shared Object</strong> of the <code>Controllers</code> &amp; <code>Apps</code>.</p>
 <h2 id=".publish()-.subscribe()">.publish(), .subscribe()</h2>
 <p>The internal Jails Pub/Sub, the same used in <code>Controllers</code> &amp; <code>Apps</code>.</p>
+<h2 id=".events">.events</h2>
+<p>This property has <code>on</code>, <code>off</code> and <code>trigger</code> jQuery-like methods for events.
+Use this when you want for some reason to add, remove or trigger an event to a nodeElement which is external to your controller, app or component mixin.</p>
+<pre><code class="lang-js">jails.events.on(<span class="pl-c1">document</span>, <span class="pl-s">&apos;click&apos;</span>, <span class="hljs-function"><span class="pl-k">function</span> <span class="pl-ent">handler</span>(<span class="hljs-params"></span>)</span>{})
+jails.events.off(<span class="pl-c1">document</span>, <span class="pl-s">&apos;click&apos;</span>, handler)
+jails.events.trigger(<span class="pl-c1">document</span>, <span class="pl-s">&apos;click&apos;</span>)
+</code></pre>
 
         </div>
         <div class="footer-nav">
-          <div class="left"><a href="../command-line/index.html"><span class="title">Command Line</span></a></div>
+          <div class="left"><a href="../modules/index.html"><span class="title">Modules</span></a></div>
         </div>
       </div>
       <div class="menu toc-menu">
@@ -71,12 +78,6 @@ Very useful when you create dynamically an ecosystem jails module.</p>
                 </li>
               </ul>
             </li>
-            <li class="menu-item -level-1 -parent"><a href="../command-line/index.html" class="link title  link-command-line">Command Line</a>
-              <ul class="submenu">
-                <li class="menu-item -level-2">
-                </li>
-              </ul>
-            </li>
             <li class="menu-item -level-1 -parent"><a href="../jails-api/index.html" class="link title -active link-jails-api">Jails API</a>
               <ul class="headings heading-list">
                 <li class="heading-item -depth-2"><a href="#.apps-.controllers-.components" class="hlink link-.apps-.controllers-.components">.apps, .controllers, .components</a>
@@ -90,6 +91,8 @@ Very useful when you create dynamically an ecosystem jails module.</p>
                 <li class="heading-item -depth-2"><a href="#.data" class="hlink link-.data">.data</a>
                 </li>
                 <li class="heading-item -depth-2"><a href="#.publish()-.subscribe()" class="hlink link-.publish()-.subscribe()">.publish(), .subscribe()</a>
+                </li>
+                <li class="heading-item -depth-2"><a href="#.events" class="hlink link-.events">.events</a>
                 </li>
               </ul>
               <ul class="submenu">

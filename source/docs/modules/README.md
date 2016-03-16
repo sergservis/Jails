@@ -3,7 +3,7 @@
 
 > Outsider & Generic
 
-- **Generic** AMD Modules
+- **Generic** Javascript Modules
 - **Doesn't need** to be Jails dependent
 - It can use **Jails** module
 

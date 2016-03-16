@@ -8,7 +8,5 @@
 	- []()
 - [Modules](modules/README.md)
 	- []()
-- [Command Line](command-line/README.md)
-	- []()
 - [Jails API](jails-api/README.md)
 	- []()
