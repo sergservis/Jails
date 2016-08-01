@@ -38,7 +38,7 @@
 
 					<!--@autopost({ target:'input[type=text]', event :'keyup' })
 					@submitter({ emit :'search', params :true })-->
-					<form action="#" class="search" data-component="autopost,submitter">
+					<form action="#" class="search" data-component="autopost submitter">
 						<div class="input-group">
 							<div class="input-group-addon">modules/</div>
 							<div class="has-warning">
@@ -51,7 +51,7 @@
 					<nav class="nav">
 						<ul class="list-inline">
 							<li><a href="//github.com/jails-org"><img src="assets/images/github.png" />Jails.org</a></li>
-							<li><span class="text-success glyphicon glyphicon-th"></span> / <a href="index.htm" class="lnk">Components</a></li>
+							<li><span class="text-success glyphicon glyphicon-th"></span> / <a href="components.htm" class="lnk">Components</a></li>
 							<li><span class="text-danger glyphicon glyphicon-th-large"></span> / <a href="modules.htm" class="lnk">Modules</a></li>
 						</ul>
 					</nav>
@@ -131,7 +131,7 @@
 		</section>
 
 		<!--@litemodal({ open: 'show' })-->
-		<section class="litemodal" data-component="litemodal,view">
+		<section class="litemodal" data-component="litemodal view">
 			<div class="m-body">
 				<iframe data-attr="{ src:'{{url}}'}"></iframe>
 			</div>
