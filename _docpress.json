@@ -13,27 +13,39 @@
             "id": "introduction"
           },
           {
-            "title": "Architecture",
+            "title": "Jails-org",
             "depth": 2,
-            "id": "architecture"
+            "id": "jails-org"
           }
         ]
       },
       {
-        "title": "Quick Starting",
+        "title": "Getting Started",
         "source": "docs/getting-started/README.md",
         "url": "getting-started/index.html",
         "slug": "getting-started",
         "headings": [
           {
-            "title": "Markup",
+            "title": "Creating a Component",
             "depth": 2,
-            "id": "markup"
+            "id": "creating-a-component",
+            "headings": [
+              {
+                "title": "Markup",
+                "depth": 3,
+                "id": "markup"
+              },
+              {
+                "title": "Javascript",
+                "depth": 3,
+                "id": "javascript"
+              }
+            ]
           },
           {
-            "title": "App - hello-world.js",
+            "title": "Starting Application",
             "depth": 2,
-            "id": "app-hello-world.js"
+            "id": "starting-application"
           }
         ],
         "sections": [
@@ -50,94 +62,35 @@
         "slug": "components",
         "headings": [
           {
-            "title": "Markup",
+            "title": "Passive way",
             "depth": 2,
-            "id": "markup"
-          },
-          {
-            "title": "Configurations",
-            "depth": 2,
-            "id": "configurations"
-          },
-          {
-            "title": "Annotations",
-            "depth": 2,
-            "id": "annotations"
-          },
-          {
-            "title": "Mixin declaration",
-            "depth": 2,
-            "id": "mixin-declaration"
-          },
-          {
-            "title": "Api",
-            "depth": 2,
-            "id": "api"
-          }
-        ],
-        "sections": [
-          {
-            "title": "",
-            "source": ""
-          }
-        ]
-      },
-      {
-        "title": "Apps & Controllers",
-        "source": "docs/apps-controllers/README.md",
-        "url": "apps-controllers/index.html",
-        "slug": "apps-controllers",
-        "headings": [
-          {
-            "title": "Markup",
-            "depth": 2,
-            "id": "markup"
-          },
-          {
-            "title": "Shared Data",
-            "depth": 2,
-            "id": "shared-data"
-          },
-          {
-            "title": "Mixin declaration",
-            "depth": 2,
-            "id": "mixin-declaration",
+            "id": "passive-way",
             "headings": [
               {
-                "title": "App declaration",
+                "title": "Example",
                 "depth": 3,
-                "id": "app-declaration"
-              },
-              {
-                "title": "Controller declaration",
-                "depth": 3,
-                "id": "controller-declaration"
+                "id": "example"
               }
             ]
           },
           {
-            "title": "Controlling Components",
+            "title": "Active way",
             "depth": 2,
-            "id": "controlling-components"
-          },
-          {
-            "title": "Api",
-            "depth": 2,
-            "id": "api"
+            "id": "active-way",
+            "headings": [
+              {
+                "title": "Example",
+                "depth": 3,
+                "id": "example"
+              },
+              {
+                "title": "Example",
+                "depth": 3,
+                "id": "example"
+              }
+            ]
           }
         ],
-        "sections": [
-          {
-            "title": "",
-            "source": ""
-          }
-        ]
-      },
-      {
-        "title": "Modules",
-        "source": "docs/modules/README.md",
-        "url": "modules/index.html",
-        "slug": "modules",
         "sections": [
           {
             "title": "",
@@ -150,41 +103,33 @@
         "source": "docs/jails-api/README.md",
         "url": "jails-api/index.html",
         "slug": "jails-api",
+        "sections": [
+          {
+            "title": "",
+            "source": ""
+          }
+        ]
+      },
+      {
+        "title": "Downloads",
+        "source": "docs/downloads/README.md",
+        "url": "downloads/index.html",
+        "slug": "downloads",
         "headings": [
           {
-            "title": ".apps, .controllers, .components",
+            "title": "Webpack",
             "depth": 2,
-            "id": ".apps-.controllers-.components"
+            "id": "webpack"
           },
           {
-            "title": ".app(), .controller(), .component()",
+            "title": "RequireJS",
             "depth": 2,
-            "id": ".app()-.controller()-.component()"
+            "id": "requirejs"
           },
           {
-            "title": ".start()",
+            "title": "Javascript Vanilla",
             "depth": 2,
-            "id": ".start()"
-          },
-          {
-            "title": ".refresh( NodeElement )",
-            "depth": 2,
-            "id": ".refresh(-nodeelement-)"
-          },
-          {
-            "title": ".data",
-            "depth": 2,
-            "id": ".data"
-          },
-          {
-            "title": ".publish(), .subscribe()",
-            "depth": 2,
-            "id": ".publish()-.subscribe()"
-          },
-          {
-            "title": ".events",
-            "depth": 2,
-            "id": ".events"
+            "id": "javascript-vanilla"
           }
         ],
         "sections": [
@@ -208,26 +153,38 @@
           "id": "introduction"
         },
         {
-          "title": "Architecture",
+          "title": "Jails-org",
           "depth": 2,
-          "id": "architecture"
+          "id": "jails-org"
         }
       ]
     },
     "getting-started/index.html": {
       "source": "docs/getting-started/README.md",
-      "title": "Quick Starting",
+      "title": "Getting Started",
       "slug": "getting-started",
       "headings": [
         {
-          "title": "Markup",
+          "title": "Creating a Component",
           "depth": 2,
-          "id": "markup"
+          "id": "creating-a-component",
+          "headings": [
+            {
+              "title": "Markup",
+              "depth": 3,
+              "id": "markup"
+            },
+            {
+              "title": "Javascript",
+              "depth": 3,
+              "id": "javascript"
+            }
+          ]
         },
         {
-          "title": "App - hello-world.js",
+          "title": "Starting Application",
           "depth": 2,
-          "id": "app-hello-world.js"
+          "id": "starting-application"
         }
       ]
     },
@@ -237,120 +194,60 @@
       "slug": "components",
       "headings": [
         {
-          "title": "Markup",
+          "title": "Passive way",
           "depth": 2,
-          "id": "markup"
-        },
-        {
-          "title": "Configurations",
-          "depth": 2,
-          "id": "configurations"
-        },
-        {
-          "title": "Annotations",
-          "depth": 2,
-          "id": "annotations"
-        },
-        {
-          "title": "Mixin declaration",
-          "depth": 2,
-          "id": "mixin-declaration"
-        },
-        {
-          "title": "Api",
-          "depth": 2,
-          "id": "api"
-        }
-      ]
-    },
-    "apps-controllers/index.html": {
-      "source": "docs/apps-controllers/README.md",
-      "title": "Apps & Controllers",
-      "slug": "apps-controllers",
-      "headings": [
-        {
-          "title": "Markup",
-          "depth": 2,
-          "id": "markup"
-        },
-        {
-          "title": "Shared Data",
-          "depth": 2,
-          "id": "shared-data"
-        },
-        {
-          "title": "Mixin declaration",
-          "depth": 2,
-          "id": "mixin-declaration",
+          "id": "passive-way",
           "headings": [
             {
-              "title": "App declaration",
+              "title": "Example",
               "depth": 3,
-              "id": "app-declaration"
-            },
-            {
-              "title": "Controller declaration",
-              "depth": 3,
-              "id": "controller-declaration"
+              "id": "example"
             }
           ]
         },
         {
-          "title": "Controlling Components",
+          "title": "Active way",
           "depth": 2,
-          "id": "controlling-components"
-        },
-        {
-          "title": "Api",
-          "depth": 2,
-          "id": "api"
+          "id": "active-way",
+          "headings": [
+            {
+              "title": "Example",
+              "depth": 3,
+              "id": "example"
+            },
+            {
+              "title": "Example",
+              "depth": 3,
+              "id": "example"
+            }
+          ]
         }
       ]
-    },
-    "modules/index.html": {
-      "source": "docs/modules/README.md",
-      "title": "Modules",
-      "slug": "modules"
     },
     "jails-api/index.html": {
       "source": "docs/jails-api/README.md",
       "title": "Jails API",
-      "slug": "jails-api",
+      "slug": "jails-api"
+    },
+    "downloads/index.html": {
+      "source": "docs/downloads/README.md",
+      "title": "Downloads",
+      "slug": "downloads",
       "headings": [
         {
-          "title": ".apps, .controllers, .components",
+          "title": "Webpack",
           "depth": 2,
-          "id": ".apps-.controllers-.components"
+          "id": "webpack"
         },
         {
-          "title": ".app(), .controller(), .component()",
+          "title": "RequireJS",
           "depth": 2,
-          "id": ".app()-.controller()-.component()"
+          "id": "requirejs"
         },
         {
-          "title": ".start()",
+          "title": "Javascript Vanilla",
           "depth": 2,
-          "id": ".start()"
-        },
-        {
-          "title": ".refresh( NodeElement )",
-          "depth": 2,
-          "id": ".refresh(-nodeelement-)"
-        },
-        {
-          "title": ".data",
-          "depth": 2,
-          "id": ".data"
-        },
-        {
-          "title": ".publish(), .subscribe()",
-          "depth": 2,
-          "id": ".publish()-.subscribe()"
-        },
-        {
-          "title": ".events",
-          "depth": 2,
-          "id": ".events"
+          "id": "javascript-vanilla"
         }
       ]
     }
@@ -359,9 +256,8 @@
     "README.md": "index.html",
     "docs/getting-started/README.md": "getting-started/index.html",
     "docs/components/README.md": "components/index.html",
-    "docs/apps-controllers/README.md": "apps-controllers/index.html",
-    "docs/modules/README.md": "modules/index.html",
     "docs/jails-api/README.md": "jails-api/index.html",
+    "docs/downloads/README.md": "downloads/index.html",
     "docs/docpress.json": "docpress.json",
     "docs/assets/ecosystem.png": "assets/ecosystem.png"
   }

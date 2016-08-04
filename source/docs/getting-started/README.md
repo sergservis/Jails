@@ -1,27 +1,40 @@
-# Getting started
+# Getting Started
+<!--{h1:.massive-header.-with-tagline}-->
 
-## Markup
+> Components
+
+## Creating a Component
+
+### Markup
 
 ```html
+<form class="form" data-component="form">
+    <input type="text" name="message" />
+    <button>Send</button>
+</form>
 
-<body data-app="hello-world">
-	<!-- ... -->
-	<script type="text/javascript" src="node_modules/jails-js/source/jails.min.js"></script>
-</body>
 ```
 
-## App - hello-world.js
+### Javascript
+```js
+import jails from 'jails'
+
+jails('form', ( component, form, annotation ) =>{
+
+    component.init = ()=>{
+        component.on('change', 'input' onChange)
+    }
+
+    let onChange = (e)=>{
+        console.log('Hey, some input has changed')
+    }
+})
+```
+
+## Starting Application
+
+Jails only register `components` functions, it will never execute them automatically. This is important so you can have total control of your application workflow. After all components be loaded, you can start the application with `jails.start()` method.
 
 ```js
-
-jails.app('hello-world', function( body, data ){
-
-    this.init = function(){
-        console.log('Hello World!!! =)');
-        console.log('My app is running on =>', html);
-    };
-});
-
-jails.start();
-
+jails.start()
 ```

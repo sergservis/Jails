@@ -1,41 +1,26 @@
 # Jails API
 <!--{h1:.massive-header.-with-tagline}-->
 
-> Public Methods
+> Static Methods
 
-You will eventually need to access some of the **Jails Public Methods** in order to build some kind of Component, or a Generic Module which needs to be integrated to the ecosystem somehow.
+# Api
 
-These are the public methods you can use:
+#### .start()
+Start jails internal Scanner, which will scan entire html and instantiate the components.
 
-## .apps, .controllers, .components
+#### .scanner
+Scanner object, scans the html DOM tree and start components.
 
-This properties contains all the mixins loaded via `RequireJs`.
+#### .render( DOMElement container, String html)
+Replace html content of a container DOMElement, and destroy all components instances.
 
-## .app(), .controller(), .component()
+#### .refresh( [DOMElement container] )
+Executes scanning again, if no option is passed, Jails will scan the entire DOM again.
+It will bypass components already started, it will initialize only new dom elements created.
 
-Creates and saves your **app**, **controller** or **component** mixin in the Jails ecosystem.
+#### .events
+Jails events object has `.on()`, `.off()`, `.trigger()` methods for events, also used on Components interface.
+You can bypass these events making an *adapter*, using jQuery if you will.
 
-## .start()
-
-Start Jails ecosystem.
-
-## .refresh( NodeElement )
-Jails will scan again looking for `Components`, `Applications`, `Controllers` inside some `NodeElement` target.
-Very useful when you create dynamically an ecosystem jails module.
-
-## .data
-Gets the **Shared Object** of the `Controllers` & `Apps`.
-
-## .publish(), .subscribe()
-The internal Jails Pub/Sub, the same used in `Controllers` & `Apps`.
-
-## .events
-
-This property has `on`, `off` and `trigger` jQuery-like methods for events.
-Use this when you want for some reason to add, remove or trigger an event to a nodeElement which is external to your controller, app or component mixin.
-
-```js
-jails.events.on(document, 'click', function handler(){})
-jails.events.off(document, 'click', handler)
-jails.events.trigger(document, 'click')
-```
+#### .publish( `string`, `:any`) / Jails.subscribe( `string`, `:any`)
+The same `.publish()` and `.subscribe()` events used on components interface, you can use it on third-party modules using the pub/sub pattern.
