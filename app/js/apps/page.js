@@ -6,28 +6,22 @@ define([
 
 	'comps/view/view',
 	'comps/submitter/submitter',
-	'comps/autopost/autopost',
-	'comps/litemodal/litemodal'
+	'comps/modal/modal'
 
 ], function( jails, github, routr ){
 
-	//tree :"//api.github.com/repos/jails-org/Components/git/trees/master",
-	//file :"//api.github.com/repos/jails-org/Components/contents/view/README.md"
+	return jails('page', function( component, html, data ){
 
-	return jails.app('page', function( html, data ){
+		var	type 	= html.getAttribute('data-type'),
+			view 	= component.get('[data-component*=view]'),
+			modal 	= component.get('[data-component*=modal]');
 
-		var
-			app		= this,
-			type 	= html.getAttribute('data-type'),
-			view 	= this.x('[data-component*=view]'),
-			modal 	= this.x('[data-component*=modal]');
-
-		this.init = function(){
+		component.init = function(){
 
 			github.request( type ).done( render, complete );
 
-			this.listen('submitter:search', search);
-			this.on( 'click', '.readme', open_readme );
+			component.listen('submitter:search', search);
+			component.on( 'click', '.readme', open_readme );
 		};
 
 		function open_readme(e){
@@ -35,13 +29,13 @@ define([
 			var url = ['readme.htm?branch='+github.branch+'#', type, this.title ].join('/');
 
 			modal('open');
-			modal('render', { url: url } );
+			modal('update', { url: url } );
 
 			e.preventDefault();
 		}
 
 		function render(response){
-			view('render', response);
+			view('update', response);
 		}
 
 		function search( e, post ){
