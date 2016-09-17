@@ -1,0 +1,28 @@
+{
+  "name": "jails",
+  "version": "1.0.0",
+  "description": "Jails Documentation",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"docpress": "docpress -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jails-org/Jails.git"
+  },
+  "keywords": [
+    "Microframework",
+    "javascript",
+    "event-driven"
+  ],
+  "author": "Javiani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jails-org/Jails/issues"
+  },
+  "homepage": "https://github.com/jails-org/Jails#readme",
+  "dependencies": {
+    "docpress": "^0.6.13"
+  }
+}
