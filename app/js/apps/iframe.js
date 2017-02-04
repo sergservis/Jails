@@ -8,11 +8,9 @@ define([
 
 ], function( jails, github, showdown, routr ){
 
-	return jails.app('iframe', function( body, data ){
+	return jails('iframe', function( component, body, data ){
 
-		var app  = this;
-
-		this.init = function(){
+		component.init = function(){
 
 			routr()
 				.get('/:type/:name', load)

@@ -70,6 +70,20 @@ jails('B', (component, div, annotation) =>{
 })
 ```
 
+You can also use the `*` wildcard to listen to an action fired by any component
+
+```js
+import jails from 'jails'
+
+jails('A', (component, div, annotation) =>{
+
+    component.init = ()=>{
+        // To listen to a click from any component that emits 'click'.
+        component.listen('*:click', e => console.log(e))
+    }
+})
+```
+
 ## Active way
 
 You can execute a public component method through other component using the **.get()** function.

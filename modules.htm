@@ -18,7 +18,7 @@
 
 </head>
 
-<body data-app="page" data-type="modules" class="loading">
+<body data-component="page" data-type="modules" class="loading">
 
 	<main>
 
@@ -27,7 +27,7 @@
 				<div class="col-md-3">
 					<figure class="element modules">
 						<div class="p-element" data-component="view">
-							<p class="p-number" data-value="count">-</p>
+							<p class="p-number" data-value="{count}">-</p>
 							<p class="p-title">Mo</p>
 							<p class="p-name">Module</p>
 							<p class="p-description">Ousider &amp; Generic</p>
@@ -36,9 +36,8 @@
 				</div>
 				<div class="col-md-5">
 
-					<!--@autopost({ target:'input[type=text]', event :'keyup' })
-					@submitter({ emit :'search', params :true })-->
-					<form action="#" class="search" data-component="autopost submitter">
+					<!--@submitter({ emit :'search', params :true })-->
+					<form action="#" class="search" data-component="submitter">
 						<div class="input-group">
 							<div class="input-group-addon">modules/</div>
 							<div class="has-warning">
@@ -50,7 +49,7 @@
 				<div class="col-md-4">
 					<nav class="nav">
 						<ul class="list-inline">
-							<li><a href="//github.com/jails-org"><img src="assets/images/github.png" />Jails.org</a></li>
+							<li><a href="//github.com/jails-org">Jails.org</a></li>
 							<li><span class="text-success glyphicon glyphicon-th"></span> / <a href="components.htm" class="lnk">Components</a></li>
 							<li><span class="text-danger glyphicon glyphicon-th-large"></span> / <a href="modules.htm" class="lnk">Modules</a></li>
 						</ul>
@@ -65,7 +64,7 @@
 
 					<section data-component="view">
 
-						<ul data-each="items" class="list-unstyled">
+						<ul each="{items}" class="list-unstyled">
 							<li class="panel panel-default">
 								<div class="panel-body">
 
@@ -74,8 +73,8 @@
 										<div class="col-md-7">
 
 											<h4>
-												<span data-value="section"></span> /
-												<a href="//github.com/jails-org/Modules/tree/{{branch}}/{{name}}" target="_blank" class="text-default readme" title="{{name}}" data-value="name">Modules</a>
+												<span data-value="{section}"></span> /
+												<a href="//github.com/jails-org/Modules/tree/{branch}/{name}" target="_blank" class="text-default readme" title="{name}" data-value="{name}">Modules</a>
 											</h4>
 											<hr />
 
@@ -83,20 +82,13 @@
 
 												<p>
 													<span class="label label-warning">usage</span> :
-													mods/{{name}}/{{name}}
-												</p>
-
-												<p data-if="demo">
-													<span class="label label-info">demo&nbsp;</span> :
-													<a href="{{demo}}" target="_blank">
-														Jails.org/Modules/{{name}}
-													</a>
+													mods/{name}/{name}
 												</p>
 
 												<p>
 													<span class="label label-primary">github</span> :
-													<a href="//github.com/jails-org/Modules/tree/{{branch}}/{{name}}" target="_blank">
-														Jails.org/Modules/{{name}}
+													<a href="//github.com/jails-org/Modules/tree/{branch}/{name}" target="_blank">
+														Jails.org/Modules/{name}
 													</a>
 												</p>
 
@@ -104,7 +96,7 @@
 										</div>
 
 										<div class="col-md-5 description">
-											<p>{{description}}</p>
+											<p>{description}</p>
 										</div>
 
 									</div>
@@ -123,17 +115,17 @@
 		<section class="container-fluid" data-component="view" data-cloak>
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<div class="alert alert-dismissible alert-warning" data-not="items">
+					<div class="alert alert-dismissible alert-warning" if="{!items.length}">
 						<strong>No results ...</strong>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!--@litemodal({ open: 'show' })-->
-		<section class="litemodal" data-component="litemodal view">
+		<!--@modal({ open: 'show' })-->
+		<section class="litemodal" data-component="modal view">
 			<div class="m-body">
-				<iframe data-attr="{ src:'{{url}}'}"></iframe>
+				<iframe riot-src="{url}"></iframe>
 			</div>
 		</section>
 
