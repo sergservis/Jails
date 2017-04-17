@@ -26,6 +26,11 @@
         "slug": "getting-started",
         "headings": [
           {
+            "title": "Installing",
+            "depth": 2,
+            "id": "installing"
+          },
+          {
             "title": "Creating a Component",
             "depth": 2,
             "id": "creating-a-component",
@@ -62,33 +67,26 @@
         "slug": "components",
         "headings": [
           {
-            "title": "Passive way",
+            "title": "Relashionship",
             "depth": 2,
-            "id": "passive-way",
+            "id": "relashionship",
             "headings": [
               {
-                "title": "Example",
+                "title": "Listening to events",
                 "depth": 3,
-                "id": "example"
+                "id": "listening-to-events"
+              },
+              {
+                "title": "Executing another component's method",
+                "depth": 3,
+                "id": "executing-another-component's-method"
               }
             ]
           },
           {
-            "title": "Active way",
+            "title": "Components - API",
             "depth": 2,
-            "id": "active-way",
-            "headings": [
-              {
-                "title": "Example",
-                "depth": 3,
-                "id": "example"
-              },
-              {
-                "title": "Example",
-                "depth": 3,
-                "id": "example"
-              }
-            ]
+            "id": "components-api"
           }
         ],
         "sections": [
@@ -103,35 +101,6 @@
         "source": "docs/jails-api/README.md",
         "url": "jails-api/index.html",
         "slug": "jails-api",
-        "sections": [
-          {
-            "title": "",
-            "source": ""
-          }
-        ]
-      },
-      {
-        "title": "Downloads",
-        "source": "docs/downloads/README.md",
-        "url": "downloads/index.html",
-        "slug": "downloads",
-        "headings": [
-          {
-            "title": "Webpack",
-            "depth": 2,
-            "id": "webpack"
-          },
-          {
-            "title": "RequireJS",
-            "depth": 2,
-            "id": "requirejs"
-          },
-          {
-            "title": "Javascript Vanilla",
-            "depth": 2,
-            "id": "javascript-vanilla"
-          }
-        ],
         "sections": [
           {
             "title": "",
@@ -165,6 +134,11 @@
       "slug": "getting-started",
       "headings": [
         {
+          "title": "Installing",
+          "depth": 2,
+          "id": "installing"
+        },
+        {
           "title": "Creating a Component",
           "depth": 2,
           "id": "creating-a-component",
@@ -194,33 +168,26 @@
       "slug": "components",
       "headings": [
         {
-          "title": "Passive way",
+          "title": "Relashionship",
           "depth": 2,
-          "id": "passive-way",
+          "id": "relashionship",
           "headings": [
             {
-              "title": "Example",
+              "title": "Listening to events",
               "depth": 3,
-              "id": "example"
+              "id": "listening-to-events"
+            },
+            {
+              "title": "Executing another component's method",
+              "depth": 3,
+              "id": "executing-another-component's-method"
             }
           ]
         },
         {
-          "title": "Active way",
+          "title": "Components - API",
           "depth": 2,
-          "id": "active-way",
-          "headings": [
-            {
-              "title": "Example",
-              "depth": 3,
-              "id": "example"
-            },
-            {
-              "title": "Example",
-              "depth": 3,
-              "id": "example"
-            }
-          ]
+          "id": "components-api"
         }
       ]
     },
@@ -228,28 +195,6 @@
       "source": "docs/jails-api/README.md",
       "title": "Jails API",
       "slug": "jails-api"
-    },
-    "downloads/index.html": {
-      "source": "docs/downloads/README.md",
-      "title": "Downloads",
-      "slug": "downloads",
-      "headings": [
-        {
-          "title": "Webpack",
-          "depth": 2,
-          "id": "webpack"
-        },
-        {
-          "title": "RequireJS",
-          "depth": 2,
-          "id": "requirejs"
-        },
-        {
-          "title": "Javascript Vanilla",
-          "depth": 2,
-          "id": "javascript-vanilla"
-        }
-      ]
     }
   },
   "sources": {
@@ -257,8 +202,6 @@
     "docs/getting-started/README.md": "getting-started/index.html",
     "docs/components/README.md": "components/index.html",
     "docs/jails-api/README.md": "jails-api/index.html",
-    "docs/downloads/README.md": "downloads/index.html",
-    "docs/docpress.json": "docpress.json",
-    "docs/assets/ecosystem.png": "assets/ecosystem.png"
+    "docs/docpress.json": "docpress.json"
   }
 }
