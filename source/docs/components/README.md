@@ -266,3 +266,31 @@ E.g `.on('submit', {'form':callback }) `
 
 #### .subscribe( Event, Function ) : Function unsubscribe
 > Subscribes the Controller/App to a global event. Returns a function to unsubscribe if necessary.
+
+#### .injection
+> Jails supports **`Dependency Injection`** by sending an object with all dependencies to a component. The component function gets the `.injection` property interface with all dependencies references. Example:
+
+```js
+import router from 'jails.packages/router'
+import mycomponent from 'components/my-component'
+
+const dependencies = {
+    injection :{ router }
+}
+
+jails('my-component', mycomponent, dependencies )
+
+```
+
+Getting dependencies in component function :
+
+```js
+export default ( {init, injection} )=>{
+
+    const {router} = injection
+
+    init(()=>{
+        router('/:page', page => console.log('hello at /', page))
+    })
+}
+```

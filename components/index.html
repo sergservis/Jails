@@ -251,6 +251,30 @@ E.g <code>.on(&apos;submit&apos;, {&apos;form&apos;:callback })</code></p>
 <blockquote>
 <p>Subscribes the Controller/App to a global event. Returns a function to unsubscribe if necessary.</p>
 </blockquote>
+<h4 id=".injection">.injection</h4>
+<blockquote>
+<p>Jails supports <strong><code>Dependency Injection</code></strong> by sending an object with all dependencies to a component. The component function gets the <code>.injection</code> property interface with all dependencies references. Example:</p>
+</blockquote>
+<pre><code class="lang-js"><span class="pl-k">import</span> router <span class="pl-k">from</span> <span class="pl-s">&apos;jails.packages/router&apos;</span>
+<span class="pl-k">import</span> mycomponent <span class="pl-k">from</span> <span class="pl-s">&apos;components/my-component&apos;</span>
+
+<span class="pl-k">const</span> dependencies = {
+    injection :{ router }
+}
+
+jails(<span class="pl-s">&apos;my-component&apos;</span>, mycomponent, dependencies )
+
+</code></pre>
+<p>Getting dependencies in component function :</p>
+<pre><code class="lang-js"><span class="pl-k">export</span> <span class="pl-k">default</span> ( {init, injection} )=&gt;{
+
+    <span class="pl-k">const</span> {router} = injection
+
+    init(()=&gt;{
+        router(<span class="pl-s">&apos;/:page&apos;</span>, page =&gt; <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;hello at /&apos;</span>, page))
+    })
+}
+</code></pre>
 
         </div>
         <div class="footer-nav">

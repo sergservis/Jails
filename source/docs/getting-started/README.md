@@ -39,7 +39,7 @@ jails('form', ( {init, on} ) =>{
 
 ## Starting Application
 
-Jails only register `components` functions, it will never execute them automatically. This is important so you can have total control of your application workflow. After all components be loaded, you can start the application with `jails.start()` method.
+The code above shows only how to register `components` into `Jails`, it will not execute them automatically. This is important so you can have total control of your application workflow. After all components are loaded, you can start the application using `jails.start()` method.
 
 ```js
 jails.start()
