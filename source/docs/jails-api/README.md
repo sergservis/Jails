@@ -9,13 +9,6 @@
 > Start jails internal Scanner, which will scan entire html and instantiate the components.
 It accepts an `HTMLElement` holder to specify which part of document it should look for components and instantiate.
 
-#### .render( `HTMLElement` container, `String` html)
-> Replace html content of a container DOMElement, and destroy all components instances.
-
-#### .refresh( [`HTMLElement` container] )
-> Executes scanning again, if no option is passed, Jails will scan the entire DOM again.
-It will bypass components already started, it will initialize only new dom elements created.
-
 #### .destroy( `HTMLElement`, [CssSelector] )
 > Destroy all the events attached to that Node, and fires the `.destroy()` component method.
 
