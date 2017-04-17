@@ -21,6 +21,9 @@
 <blockquote>
 <p>Components</p>
 </blockquote>
+<h2 id="installing">Installing</h2>
+<pre><code>npm install jails-js
+</code></pre>
 <h2 id="creating-a-component">Creating a Component</h2>
 <h3 id="markup">Markup</h3>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="pl-s">&quot;form&quot;</span> <span class="hljs-attr">data-component</span>=<span class="pl-s">&quot;form&quot;</span>&gt;</span>
@@ -30,17 +33,17 @@
 
 </code></pre>
 <h3 id="javascript">Javascript</h3>
-<pre><code class="lang-js"><span class="pl-k">import</span> jails <span class="pl-k">from</span> <span class="pl-s">&apos;jails&apos;</span>
+<pre><code class="lang-js"><span class="pl-k">import</span> jails <span class="pl-k">from</span> <span class="pl-s">&apos;jails-js&apos;</span>
 
-jails(<span class="pl-s">&apos;form&apos;</span>, ( component, form, annotation ) =&gt;{
+jails(<span class="pl-s">&apos;form&apos;</span>, ( {init, on} ) =&gt;{
 
-    component.init = ()=&gt;{
-        component.on(<span class="pl-s">&apos;change&apos;</span>, <span class="pl-s">&apos;input&apos;</span> onChange)
-    }
+	init(()=&gt;{
+		on(<span class="pl-s">&apos;change&apos;</span>, {<span class="pl-s">&apos;input&apos;</span>:onchange})
+	})
 
-    <span class="pl-k">let</span> onChange = (e)=&gt;{
-        <span class="pl-c1">console</span>.log(<span class="pl-s">&apos;Hey, some input has changed&apos;</span>)
-    }
+	<span class="pl-k">const</span> onchange = e =&gt;{
+		<span class="pl-c1">console</span>.log(<span class="pl-s">&apos;Hey, some input has changed&apos;</span>)
+	}
 })
 </code></pre>
 <h2 id="starting-application">Starting Application</h2>
@@ -61,6 +64,8 @@ jails(<span class="pl-s">&apos;form&apos;</span>, ( component, form, annotation 
             </li>
             <li class="menu-item -level-1 -parent"><a href="../getting-started/index.html" class="link title -active link-getting-started">Getting Started</a>
               <ul class="headings heading-list">
+                <li class="heading-item -depth-2"><a href="#installing" class="hlink link-installing">Installing</a>
+                </li>
                 <li class="heading-item -depth-2"><a href="#creating-a-component" class="hlink link-creating-a-component">Creating a Component</a>
                   <ul class="heading-list -depth-2">
                     <li class="heading-item -depth-3"><a href="#markup" class="hlink link-markup">Markup</a>
@@ -84,12 +89,6 @@ jails(<span class="pl-s">&apos;form&apos;</span>, ( component, form, annotation 
               </ul>
             </li>
             <li class="menu-item -level-1 -parent"><a href="../jails-api/index.html" class="link title  link-jails-api">Jails API</a>
-              <ul class="submenu">
-                <li class="menu-item -level-2">
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item -level-1 -parent"><a href="../downloads/index.html" class="link title  link-downloads">Downloads</a>
               <ul class="submenu">
                 <li class="menu-item -level-2">
                 </li>

@@ -22,25 +22,45 @@
 <p>Static Methods</p>
 </blockquote>
 <h1 id="api">Api</h1>
-<h4 id=".start()">.start()</h4>
-<p>Start jails internal Scanner, which will scan entire html and instantiate the components.</p>
-<h4 id=".scanner">.scanner</h4>
-<p>Scanner object, scans the html DOM tree and start components.</p>
-<h4 id=".render(-domelement-container-string-html)">.render( DOMElement container, String html)</h4>
+<h4 id=".start(-htmlelement-)">.start( [<code>HtmlElement</code>] )</h4>
+<blockquote>
+<p>Start jails internal Scanner, which will scan entire html and instantiate the components.
+It accepts an <code>HTMLElement</code> holder to specify which part of document it should look for components and instantiate.</p>
+</blockquote>
+<h4 id=".render(-htmlelement-container-string-html)">.render( <code>HTMLElement</code> container, <code>String</code> html)</h4>
+<blockquote>
 <p>Replace html content of a container DOMElement, and destroy all components instances.</p>
-<h4 id=".refresh(-domelement-container-)">.refresh( [DOMElement container] )</h4>
+</blockquote>
+<h4 id=".refresh(-htmlelement-container-)">.refresh( [<code>HTMLElement</code> container] )</h4>
+<blockquote>
 <p>Executes scanning again, if no option is passed, Jails will scan the entire DOM again.
 It will bypass components already started, it will initialize only new dom elements created.</p>
-<h4 id=".events">.events</h4>
+</blockquote>
+<h4 id=".destroy(-htmlelement-cssselector-)">.destroy( <code>HTMLElement</code>, [CssSelector] )</h4>
+<blockquote>
+<p>Destroy all the events attached to that Node, and fires the <code>.destroy()</code> component method.</p>
+</blockquote>
+<h4 id=".events-.on()-.off()-.trigger()">.events - <code>.on()</code>, <code>.off()</code>, <code>.trigger()</code></h4>
+<blockquote>
 <p>Jails events object has <code>.on()</code>, <code>.off()</code>, <code>.trigger()</code> methods for events, also used on Components interface.
 You can bypass these events making an <em>adapter</em>, using jQuery if you will.</p>
-<h4 id=".publish(-string-:any)-jails.subscribe(-string-:any)">.publish( <code>string</code>, <code>:any</code>) / Jails.subscribe( <code>string</code>, <code>:any</code>)</h4>
+</blockquote>
+<p><em>Arguments</em> : <strong>(HTMLElement, String Event, Function callback)</strong></p>
+<h4 id=".publish(-string-any)-.subscribe(-string-function)">.publish( <code>String</code>, [<code>Any</code>]) / .subscribe( <code>String</code>, <code>Function</code>)</h4>
+<blockquote>
 <p>The same <code>.publish()</code> and <code>.subscribe()</code> events used on components interface, you can use it on third-party modules using the pub/sub pattern.</p>
+</blockquote>
+<h4 id=".use(-function-)">.use( <code>Function</code> )</h4>
+<blockquote>
+<p>Some middlewares must use <code>jails</code> to decorate it with new methods/properties to push new functionalities, <code>.use</code> is the interface to plug-in those modules, like <code>Loggers</code>, <code>Adapters</code>. Example:</p>
+</blockquote>
+<pre><code class="lang-js">jails.use( logger() )
+jails.use( adapter(jQuery) )
+</code></pre>
 
         </div>
         <div class="footer-nav">
           <div class="left"><a href="../components/index.html"><span class="title">Components</span></a></div>
-          <div class="right"><a href="../downloads/index.html"><span class="label">Next: </span><span class="title">Downloads</span></a></div>
         </div>
       </div>
       <div class="menu toc-menu">
@@ -61,12 +81,6 @@ You can bypass these events making an <em>adapter</em>, using jQuery if you will
               </ul>
             </li>
             <li class="menu-item -level-1 -parent"><a href="../jails-api/index.html" class="link title -active link-jails-api">Jails API</a>
-              <ul class="submenu">
-                <li class="menu-item -level-2">
-                </li>
-              </ul>
-            </li>
-            <li class="menu-item -level-1 -parent"><a href="../downloads/index.html" class="link title  link-downloads">Downloads</a>
               <ul class="submenu">
                 <li class="menu-item -level-2">
                 </li>

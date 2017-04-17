@@ -3,6 +3,12 @@
 
 > Components
 
+## Installing
+
+```
+npm install jails-js
+```
+
 ## Creating a Component
 
 ### Markup
@@ -17,17 +23,17 @@
 
 ### Javascript
 ```js
-import jails from 'jails'
+import jails from 'jails-js'
 
-jails('form', ( component, form, annotation ) =>{
+jails('form', ( {init, on} ) =>{
 
-    component.init = ()=>{
-        component.on('change', 'input' onChange)
-    }
+	init(()=>{
+		on('change', {'input':onchange})
+	})
 
-    let onChange = (e)=>{
-        console.log('Hey, some input has changed')
-    }
+	const onchange = e =>{
+		console.log('Hey, some input has changed')
+	}
 })
 ```
 

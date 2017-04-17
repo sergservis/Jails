@@ -5,5 +5,3 @@
 	- []()
 - [Jails API](jails-api/README.md)
 	- []()
-- [Downloads](downloads/README.md)
-	- []()

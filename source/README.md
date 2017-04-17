@@ -1,25 +1,25 @@
 # Jails
 <!--{h1:.massive-header.-with-tagline}-->
 
-> Functional & Event Driven Micro-Framework
+> Reactive & Event Driven Component Library
 
-A simple way to abstract your applications using the same DOM event way to communicate all the parts of your application.
+A simple way to abstract applications using the same DOM event way to communicate all the parts of your application.
 
 ## Introduction
 
-The most known way to abstract web applications seems to be all about **MVC** architecture.
-It is a widely accepted architecture in *Back-End* environment and desktop applications. But it turns out that is pretty much hard to actually maintain that pattern on *Front-end* environment and it does not scale using that closed concept of communication of these 3 structures on Javascript and Web environment.
+Jails is a lightweight library with only ~**6kb** which introduces a simple way to create applications using the component abstraction approach. It's supposed to be easy, simple and a very low learning curve.
 
-Jails tries to change paradigm, it focus on `functional` and `modular` architecture, and uses a very known way by all Javascript programmers to wire up your modules: **Events**.
 
 ## Jails-org
 
-> We do not have the pretension to build the best modules, so we do need your help.
+> Good solutions are already there, some might just not yet known.
 
-The idea of Jails is to compose your application using the excellent libraries out there, we believe that the more composable your application is, the more efficient and maintainable it will be.
+The main idea of `Jails` is to focus on simplicity, pushing away complexity to external packages.
+That is why it can be used with **any other library**. It can be used with `jQuery` and it will be compatible with any jQuery plugins or any other javascript vanilla modules which is already been written by community.
 
-The main concept here is not ship the Micro-Framework loaded with several functionalities you might not need, Jails should grow up with community so you can write `modules` and `components` and share them, **you don't have to wait** Jails future releases to use a different view engine or a better router. Fell free to join us, helping us to improve or create new modules and components.
+Jails do not intend to own every single part of your application by forcing you to load jails modules to address issues of some part of your application. All those modules and solutions are out there to be used or to be discovered.
 
-There are some useful components and modules in the official repository, if you want to improve them or share new ones, we would be very happy with your contribution.
+`Jails-org` is a place used to centralize all good solutions out there for any kind of needs.
+Also, it has repositories for Demos, Screencasts etc..
 
 [https://github.com/jails-org/](https://github.com/jails-org/)
