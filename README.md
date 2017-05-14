@@ -260,6 +260,7 @@ E.g `.on('submit', {'form':callback }) `
 Example:
 
 `.trigger('click', 'button', {ischildnode:true})`
+
 `.trigger('click', {isparent:true})`
 
 
